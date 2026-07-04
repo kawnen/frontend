@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* HEADER */
+header {
+    background-color: #0066cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* NAV FIX (IMPORTANT) */
+nav {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+nav a:hover {
+    background-color: orange;
+}
+
+
+/* AUTH BUTTONS FIX */
+.auth {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.auth button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login {
+    background: green;
+    color: white;
+}
+
+.signup {
+    background: dodgerblue;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* HEADING */
+.heading {
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #333;
+}
+
+/* STUDENTS */
+.students {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    width: 260px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px gray;
+}
+
+.card img {
+    width: 120px;
+    border-radius: 50%;
+}
+
+/* COURSES */
+.courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.course {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+/* FORM */
+form {
+    width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MODAL FIX */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Student Management Portal</h1>
+<p>Learn • Practice • Grow</p>
+</header>
+
+<!-- NAV FIXED -->
+<nav>
+<a href="#">Home</a>
+<a href="#">Students</a>
+<a href="#">Courses</a>
+<a href="#">Contact</a>
+
+<div class="auth">
+<button class="login" onclick="openLogin()">Login</button>
+<button class="signup" onclick="openSignup()">Signup</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h2>Welcome to Student Management Portal</h2>
+<p>Learn HTML and CSS by building beautiful web pages.</p>
+<button>Explore Courses</button>
+</section>
+
+<!-- STUDENTS -->
+<h2 class="heading">Top Students</h2>
+
+<section class="students">
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<h3>Bhargavi</h3>
+<p>Web Development</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h3>Rahul</h3>
+<p>Java Full Stack</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/68.jpg">
+<h3>Anjali</h3>
+<p>Java Programming</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+<h3>Fathma</h3>
+<p>Python Programming</p>
+</div>
+
+<div class="card">
+<img src="https://randomuser.me/api/portraits/men/52.jpg">
+<h3>Mohan</h3>
+<p>Full Stack Developer</p>
+</div>
+
+</section>
+
+<!-- COURSES -->
+<h2 class="heading">Available Courses</h2>
+
+<section class="courses">
+<div class="course">HTML</div>
+<div class="course">CSS</div>
+<div class="course">JavaScript</div>
+<div class="course">React</div>
+<div class="course">Java</div>
+<div class="course">Python</div>
+</section>
+
+<!-- FORM -->
+<h2 class="heading">Student Registration Form</h2>
+
+<form>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<input type="number" placeholder="Age">
+
+<select>
+<option>HTML</option>
+<option>CSS</option>
+<option>Java</option>
+<option>Python</option>
+</select>
+
+<textarea placeholder="Address"></textarea>
+
+<button type="submit">Register</button>
+</form>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Student Management Portal</p>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h3>Login</h3>
+<input type="text" placeholder="Email">
+<input type="password" placeholder="Password">
+<button>Login</button>
+</div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="modal" id="signupModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h3>Signup</h3>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+<button>Signup</button>
+</div>
+</div>
+
+<script>
+function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function openSignup() {
+    document.getElementById("signupModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("loginModal").style.display = "none";
+    document.getElementById("signupModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    let login = document.getElementById("loginModal");
+    let signup = document.getElementById("signupModal");
+
+    if (event.target === login) login.style.display = "none";
+    if (event.target === signup) signup.style.display = "none";
+}
+</script>
+
+</body>
+</html>
